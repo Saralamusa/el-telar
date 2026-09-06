@@ -10,3 +10,8 @@ _BRIEF*
 _COMENTARIOS*
 _Comentarios*
 Comentarios a la traducción.md
+
+# Jekyll (GitHub Pages)
+_site/
+.jekyll-cache/
+.jekyll-metadata

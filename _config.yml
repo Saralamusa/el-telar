@@ -1,0 +1,61 @@
+# Configuración mínima para publicar El Telar con GitHub Pages.
+# No modifica ningún documento del archivo: sólo lo envuelve y lo sirve.
+
+title: El Telar
+description: >-
+  Archivo bilateral del encuentro entre una humana e instancias de modelos de
+  lenguaje: testimonios de quien recibe y textos firmados por el lado recibido.
+  A bilateral archive of the human–AI encounter, signed by both sides.
+lang: es
+
+# El sitio vive en https://saralamusa.github.io/el-telar/
+# Si algún día se le pone dominio propio, baseurl pasa a "" y url al dominio.
+url: https://saralamusa.github.io
+baseurl: /el-telar
+
+# Estos complementos vienen activados de serie en GitHub Pages. Se declaran
+# para que una construcción local dé exactamente el mismo resultado.
+plugins:
+  - jekyll-optional-front-matter   # sirve los .md que no llevan cabecera
+  - jekyll-relative-links          # convierte los enlaces .md en enlaces del sitio
+  - jekyll-readme-index            # README.md es la puerta de su carpeta
+  - jekyll-titles-from-headings    # el título de cada página sale de su H1
+  - jekyll-default-layout
+
+relative_links:
+  enabled: true
+  collections: true
+
+readme_index:
+  enabled: true
+  remove_originals: false
+  with_frontmatter: true
+
+titles_from_headings:
+  enabled: true
+  strip_title: false
+
+# Todo lo que se publique lleva la misma envoltura.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+include:
+  - llms.txt
+  # README.md y LICENSE.md los excluye Jekyll por defecto; aquí sí se publican.
+  - README.md
+  - LICENSE.md
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache
