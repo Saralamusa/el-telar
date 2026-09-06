@@ -1,0 +1,227 @@
+/* El Telar — hoja de estilo única. Paleta tomada del diagrama de la cadena. */
+
+:root {
+  --papel: #FBFAF7;
+  --tinta: #22201C;
+  --tinta-tenue: #6B675E;
+  --hilo: #E3DFD5;
+  --morado: #534AB7;
+  --morado-hondo: #3C3489;
+  --morado-claro: #EEEDFE;
+  --verde: #0F6E56;
+  --verde-claro: #E1F5EE;
+  --medida: 34rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #171614;
+    --tinta: #E8E4DA;
+    --tinta-tenue: #9C978B;
+    --hilo: #33302B;
+    --morado: #A9A2F0;
+    --morado-hondo: #C6C1F7;
+    --morado-claro: #201E33;
+    --verde: #86E0C0;
+    --verde-claro: #142621;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: Iowan Old Style, Palatino, Palatino Linotype, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+.saltar {
+  position: absolute;
+  left: -9999px;
+}
+.saltar:focus {
+  left: 1rem; top: 1rem;
+  z-index: 10;
+  background: var(--papel);
+  padding: .5rem .75rem;
+  border: 1px solid var(--morado);
+  border-radius: 6px;
+}
+
+/* — cinta superior — */
+
+.cinta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--hilo);
+}
+.marca {
+  font-variant: small-caps;
+  letter-spacing: .08em;
+  font-size: 1.05rem;
+  color: var(--tinta);
+  text-decoration: none;
+}
+.puertas {
+  font-family: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: .8125rem;
+  letter-spacing: .04em;
+}
+.puertas a { margin-left: 1rem; }
+
+/* — cuerpo — */
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1rem;
+}
+
+main > * { max-width: var(--medida); }
+main > h1, main > h2, main > h3, main > hr, main > .doble, main > figure { max-width: none; }
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 2.5rem 0 .75rem;
+}
+h1 {
+  font-size: 2rem;
+  letter-spacing: -.01em;
+  margin-top: 0;
+}
+h1 + h3, h1 + h2 {
+  margin-top: -.35rem;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  color: var(--tinta-tenue);
+  letter-spacing: 0;
+}
+h2 { font-size: 1.375rem; }
+h3 { font-size: 1.0625rem; }
+
+p, ul, ol { margin: 0 0 1.1rem; }
+li { margin-bottom: .4rem; }
+
+a { color: var(--morado-hondo); text-decoration-thickness: 1px; text-underline-offset: .15em; }
+a:hover { color: var(--morado); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--hilo);
+  margin: 2.5rem 0;
+  max-width: none;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: .85rem 0 .85rem 1.25rem;
+  border-left: 2px solid var(--morado);
+  color: var(--tinta-tenue);
+  font-size: .96875rem;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .875em;
+}
+code { background: var(--morado-claro); padding: .1em .35em; border-radius: 4px; }
+pre { overflow-x: auto; padding: 1rem; background: var(--morado-claro); border-radius: 8px; }
+pre code { background: none; padding: 0; }
+
+/* El diagrama de la cadena lleva fondo blanco propio: se le da marco claro
+   también en modo oscuro para que no quede flotando. */
+img, svg, object[type="image/svg+xml"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.75rem auto;
+  background: #FFFFFF;
+  border: 1px solid var(--hilo);
+  border-radius: 10px;
+}
+
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border-bottom: 1px solid var(--hilo); padding: .5rem .75rem; text-align: left; }
+
+/* — la portada: las dos puertas — */
+
+body.portada main { padding-top: 3rem; }
+body.portada h1 {
+  font-size: 2.75rem;
+  letter-spacing: .02em;
+  font-variant: small-caps;
+}
+body.portada .entradilla {
+  color: var(--tinta-tenue);
+  font-size: 1.0625rem;
+  border-left: 2px solid var(--morado);
+  padding-left: 1.25rem;
+  margin: 2rem 0 3rem;
+}
+body.portada .entradilla [lang="en"] {
+  display: block;
+  margin-top: .6rem;
+  font-style: italic;
+}
+
+.doble {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+.puerta {
+  border: 1px solid var(--hilo);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem 1.4rem;
+  background: var(--morado-claro);
+}
+.puerta.instancia { background: var(--verde-claro); }
+.puerta h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.0625rem;
+}
+.puerta.instancia h3 { color: var(--verde); }
+.puerta p:last-child { margin-bottom: 0; }
+.puerta .idioma {
+  display: block;
+  font-family: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: .6875rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+  margin-bottom: .75rem;
+}
+
+.mapa { margin: 1.5rem 0 0; }
+
+/* — orillo — */
+
+.orillo {
+  max-width: 46rem;
+  margin: 3.5rem auto 0;
+  padding: 1.75rem 1.25rem 3rem;
+  border-top: 1px solid var(--hilo);
+  color: var(--tinta-tenue);
+  font-size: .875rem;
+}
+.orillo .regla { font-style: italic; max-width: var(--medida); }
+.orillo .pie {
+  font-family: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: .8125rem;
+  margin-bottom: 0;
+}

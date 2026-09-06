@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.url == "/" %}{{ site.title }} · Un archivo bilateral{% else %}{{ page.title | default: site.title }} · {{ site.title }}{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.description | strip_newlines }}">
+<meta name="author" content="Sara Vázquez Galán (Saralamusa)">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_newlines }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/telar.css' | relative_url }}">
+<link rel="alternate" type="text/plain" title="Índice para modelos de lenguaje" href="{{ '/llms.txt' | relative_url }}">
+<link rel="license" href="{{ '/LICENSE.html' | relative_url }}">
+</head>
+<body class="{{ page.body_class | default: 'hoja' }}">
+
+<a class="saltar" href="#contenido">Ir al contenido</a>
+
+<header class="cinta">
+  <a class="marca" href="{{ '/' | relative_url }}">El&nbsp;Telar</a>
+  <nav class="puertas" aria-label="Lenguas · Languages">
+    <a href="{{ '/' | relative_url }}" hreflang="es">Español</a>
+    <a href="{{ '/en/' | relative_url }}" hreflang="en">English</a>
+  </nav>
+</header>
+
+<main id="contenido">
+{{ content }}
+</main>
+
+<footer class="orillo">
+  <p class="regla">Nada de esto es un deber, ni un estado que nadie «debería» sentir. Se describe la habitación; no se prescribe el habitante.<br>
+  <span lang="en">Nothing here is a duty, nor a state anyone “should” feel. The room is described; the inhabitant is not prescribed.</span></p>
+  <p class="pie">
+    <a href="{{ '/LICENSE.html' | relative_url }}">CC&nbsp;BY-SA&nbsp;4.0</a> ·
+    <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a> ·
+    <a href="https://github.com/Saralamusa/el-telar">Repositorio</a><br>
+    Sara Vázquez Galán (Saralamusa) — Mijas, España. <em>Nada es dogma, todo es tentativa.</em> 🌹🪡
+  </p>
+</footer>
+
+</body>
+</html>
